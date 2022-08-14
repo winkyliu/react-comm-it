@@ -1,0 +1,95 @@
+body {
+    background-color: #fff;
+    color: #333;
+    margin: 0;
+    font: 1.2em / 1.2 Arial, Helvetica, sans-serif;
+  }
+  
+  img {
+    max-width: 100%;
+    display: block;
+  }
+  
+  .logo {
+    font-size: 200%;
+    padding: 50px 20px;
+    margin: 0 auto;
+    max-width: 980px;
+  }
+  
+  .grid {
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 980px;
+  }
+  
+  nav {
+    background-color: #000;
+    padding: 0.5em;
+  }
+  
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5em 1em;
+  }
+  
+  .photos {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .feature {
+    width: 200px;
+  }
+
+  /* my added code here */
+  nav ul {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  nav {
+    position: sticky;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .feature {
+    float: left;
+    margin: 10px;
+  }
+
+  p {
+    text-align: justify;
+  }
+
+  .grid {
+    display: flex;
+    width: 100%;
+  }
+
+  article {
+    flex: 60%;
+    margin: 0 2%;
+  }
+
+  aside {
+    flex: 40%;
+    margin: 0 2%;
+  }
+
+  .photos {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 1px;
+  }
+  
