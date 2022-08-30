@@ -5,6 +5,7 @@
     <title>Chenguang's Movie Gallery</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/styles.css">
+    <script type="module" src="scripts/index.js"></script>
 </head>
 <body>
 
@@ -26,11 +27,9 @@
         </ul>
     </nav>
 
-    <div id="cut_off"></div>
-
     <div id="filter">
-        <p>categories:</p>
         <ul>
+            <li>categories:</li>
             <li><a href="#">All</a></li>
             <li><a href="#">Action</a></li>
             <li><a href="#">Adventure</a></li>
@@ -41,9 +40,9 @@
             <li><a href="#">Musicals</a></li>
             <li><a href="#">Science Fiction</a></li>
         </ul>
-        <div id="cut_off"></div>
-        <p>countries:</p>
+
         <ul>
+            <li>countries:</li>
             <li><a href="#">All</a></li>
             <li><a href="#">US</a></li>
             <li><a href="#">UK</a></li>
@@ -54,9 +53,9 @@
             <li><a href="#">Canada</a></li>
             <li><a href="#">Austrila</a></li>
         </ul>
-        <div id="cut_off"></div>
-        <p>years:</p>
+        
         <ul>
+            <li>years:</li>
             <li><a href="#">All</a></li>
             <li><a href="#">2022</a></li>
             <li><a href="#">2021</a></li>
@@ -64,66 +63,17 @@
             <li><a href="#">2019</a></li>
             <li><a href="#">2018</a></li>
         </ul>
-        <div id="cut_off"></div>
     </div>
 
-    <div id="search">
-        <p>keywords:</p>
-        <div>
-            <input type="search" id="search-movies" name="search">
-            <button>Search</button>
-        </div>
-    </div>
+    <ul id="search">
+        <li>keywords:</li>
+        <li><input type="search" id="search-movies" name="search"></li>
+        <li><button>Search</button></li>
+    </ul>
 
     <!-- Use the main area to add the main content of the webpage -->
     <main>
-        <div class="grid">
-
-            <div class="frame">
-                <a href="movie.html"><img src="images/sample_movie_placard.jpg" alt="a movie's placard"></a>
-                <p class="movie-info">movie info</p>
-            </div>
-
-            <div class="frame">
-                <a href="movie.html"><img src="images/sample_movie_placard.jpg" alt="a movie's placard"></a>
-                <p class="movie-info">movie info</p>
-            </div>
-
-            <div class="frame">
-                <a href="movie.html"><img src="images/sample_movie_placard.jpg" alt="a movie's placard"></a>
-                <p class="movie-info">movie info</p>
-            </div>
-
-            <div class="frame">
-                <a href="movie.html"><img src="images/sample_movie_placard.jpg" alt="a movie's placard"></a>
-                <p class="movie-info">movie info</p>
-            </div>
-
-            <div class="frame">
-                <a href="movie.html"><img src="images/sample_movie_placard.jpg" alt="a movie's placard"></a>
-                <p class="movie-info">movie info</p>
-            </div>
-
-            <div class="frame">
-                <a href="movie.html"><img src="images/sample_movie_placard.jpg" alt="a movie's placard"></a>
-                <p class="movie-info">movie info</p>
-            </div>
-
-            <div class="frame">
-                <a href="movie.html"><img src="images/sample_movie_placard.jpg" alt="a movie's placard"></a>
-                <p class="movie-info">movie info</p>
-            </div>
-
-            <div class="frame">
-                <a href="movie.html"><img src="images/sample_movie_placard.jpg" alt="a movie's placard"></a>
-                <p class="movie-info">movie info</p>
-            </div>
-
-            <div class="frame">
-                <a href="movie.html"><img src="images/sample_movie_placard.jpg" alt="a movie's placard"></a>
-                <p class="movie-info">movie info</p>
-            </div>
-
+        <div id="movie-grid">
         </div>
     </main>
 

@@ -1,26 +1,26 @@
 body {
-    background-color: #000;
-}
-
-h1 {
-    color: #fff;
+    background-color: white;
 }
 
 header {
-    width: 25%;
-    float: left;
+    color: white;
+    background-color: black;
 }
 
 nav {
-    width: 70%;
-    float: right;
+    width: 100%;
     margin: 5em 3em 0 0;
+    padding: 0.5em;
+    position: sticky;
+    top: 0;
+    left: 0;
 }
 
 nav ul {
-    list-style-type: none;
+    list-style: none;
     margin: 0;
-    text-align: left;
+    display: flex;
+    justify-content: center;
 }
 
 nav li {
@@ -31,163 +31,81 @@ nav li {
 }
 
 nav li a {
-    display: block;
-    color: #fff;
+    color: black;
     text-align: center;
-    padding: 0.5em 1em;
+    padding: 0.5rem 1.5rem;
     text-decoration: none;
 }
 
-#filter p {
-    width: 10%;
-    float: left;
-    color: #fff;
+nav li a .active{
+    color: white;
+    background-color: black;
+}
+
+#filter {
+    background-color: black;
 }
 
 #filter ul {
-    width: 85%;
-    float: right;
-    list-style-type: none;
+    width: 100%;
+    display: flex;
+    list-style: none;
     margin: 0;
     text-align: left;
 }
 
-#cut_off {
-    clear: left;
-    border-bottom: 1px solid #fff;
-}
-
-#filter li {
+#filter ul li {
     display: inline-block;
     font-size: 1em;
 }
 
-#filter li a {
+#filter ul li {
+    color: yellowgreen;
+    text-align: left;
+}
+
+#filter ul li a {
     display: block;
     color: #fff;
     text-align: center;
-    padding: 0.5em 1em;
     text-decoration: none;
+    padding: 10px;
 }
 
-#search p {
-    color: #fff;
-    width: 10%;
-    float: left;
+#search {
+    background-color: black;
+    width: 100%;
+    display: flex;
+    list-style: none;
 }
 
-#search div {
-    float: right;
-    width: 85%;
+#search li {
+    color: white;
+}
+
+#search li a {
+    line-height: 30px;
+    text-align: center;
 }
 
 main {
-    clear: left;
     background-color: #fff;
     padding: 2%;
     font-size: 1.25em;
 }
 
+footer {
+    background-color: black;
+}
+
 footer p {
     font-size: 0.75em;
     text-align: center;
-    color: #fff;
+    color: white;
     padding: 0 1em;
 }
 
 footer p a {
-    color: #fff;
+    color: white;
     text-decoration: none;
-}
-
-/* Style rule for box sizing applies to all elements */
-* {
-    box-sizing: border-box;
-}
-
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 60vw);
-    grid-gap: 15px;
-}
-
-/*
-.frame {
-    position: relative;
-    max-width: 600px;
-    margin: 2% auto;
-}
-
-.movie-info {
-    position: absolute;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    width: 100%;
-    padding: 20px;
-    text-align: center;
-    font-family: Verdana, Arial, sans-serif;
-    font-size: 1.5em;
-    font-weight: bold;
-}*/
-
-#movie_placard {
-    float: left;
-    width: 30%;
-}
-
-#movie_details {
-    float: right;
-    width: 65%;
-}
-
-#movie p {
-    text-align: left;
-}
-
-#movie_comments {
-    clear: left;
-}
-
-#form {
-    margin-top: 2%;
-    background-color: #f2f2f2;
-    padding: 2%;
-}
-
-/*#form h2 {
-    text-align: center;
-}*/
-
-fieldset, input, select, textarea {
-    margin-bottom: 2%;
-}
-
-fieldset legend {
-    font-weight: bold;
-    font-size: 1.25em;
-}
-
-form #submit {
-    margin: 0 auto;
-    border: none;
-    display: block;
-    padding: 1%;
-    background-color: #b3b3b3;
-    font-size: 1em;
-    border-radius: 10px;
-}
-
-.personal-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(1, 60vw);
-    grid-gap: 15px;
-}
-
-#answer {
-    display: block;
-    padding-top: 3%
 }
