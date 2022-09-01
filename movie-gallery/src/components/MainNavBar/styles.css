@@ -1,0 +1,42 @@
+.container-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--brand_blue);
+}
+
+.container-header .navbar {
+  background-color: var(--brand_blue) !important;
+}
+
+.container-header nav {
+  width: 1144px;
+}
+
+.container-header .logo {
+  width: 76px;
+}
+
+.button-primary {
+  background: linear-gradient(
+    to right,
+    var(--light_green) 0%,
+    var(--light_blue) 100%
+  );
+  border: none;
+}
+
+@media screen and (max-width: 769px) {
+  .container-header .btn-search {
+    width: 100%;
+  }
+}
+
+.active-page {
+  color: var(--light_green) !important;
+  font-weight: bold;
+}
+
+.disabled-page {
+  color: white !important;
+}

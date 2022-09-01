@@ -1,0 +1,42 @@
+footer {
+  background-color: var(--brand_blue);
+  padding: 10px;
+  color: white;
+  margin-top: 4em;
+  text-align: center;
+}
+
+footer p {
+  margin-bottom: 0;
+}
+
+.credits-text {
+  color: #ddd;
+  font-size: 14px;
+}
+
+footer .mhq {
+  color: white;
+  font-weight: bold;
+  transition: 1s all;
+  font-size: 14px;
+}
+
+footer .mhq:hover {
+  color: white;
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+footer .view-code {
+  color: #ddd;
+  display: block;
+  transition: 1s all;
+  font-size: 12px;
+}
+
+footer .view-code:hover {
+  color: #ddd;
+  text-decoration: none;
+  opacity: 0.9;
+}
