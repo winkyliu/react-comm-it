@@ -17,7 +17,7 @@ function MainCard({ ...props }) {
 
   function RenderDate(item) {
     var date = "";
-    if (item.release_date != undefined) {
+    if (item.release_date !== undefined) {
       date = moment(item.release_date).format("L");
     } else if (item.first_air_date != undefined) {
       date = moment(item.first_air_date).format("L");
@@ -26,21 +26,21 @@ function MainCard({ ...props }) {
   }
 
   function RenderImg(item) {
-    var img = type == "person" ? cast_placeholder : placeholder;
-    if (type == "movie") {
-      if (item.poster_path != null) img = GetImage("w500", item.poster_path);
+    var img = type === "person" ? cast_placeholder : placeholder;
+    if (type === "movie") {
+      if (item.poster_path !== null) img = GetImage("w500", item.poster_path);
     } else {
-      if (item.profile_path != null)
+      if (item.profile_path !== null)
         img = GetImage("w276_and_h350_face", item.profile_path);
     }
     return img;
   }
 
   function RenderMainWorks(known) {
-    if (known == undefined) return false;
+    if (known === undefined) return false;
     var main = "";
     known.map((item, index) => {
-      main += `${item.title != undefined ? item.title : item.name}${
+      main += `${item.title !== undefined ? item.title : item.name}${
         known.length != index ? ", " : ""
       }`;
     });
@@ -49,19 +49,19 @@ function MainCard({ ...props }) {
 
   function GetUrl(item) {
     var url = `/movies/${item.id}`;
-    if (type == "person") url = `/actors/${item.id}`;
+    if (type === "person") url = `/actors/${item.id}`;
     return url;
   }
 
   useEffect(() => {
-    var page = location.pathname;
+    /*var page = location.pathname;
     if (
       page.includes("movies") ||
       page.includes("actors") ||
       page == "/"
     ) {
       setTarget("_blank");
-    }
+    }*/
   }, []);
 
   return (
@@ -81,7 +81,7 @@ function MainCard({ ...props }) {
                   variant="top"
                   src={RenderImg(item)}
                 />
-                {type != "person" && (
+                {type !== "person" && (
                   <div className="container-rating">
                     <CircularProgressbar
                       strokeWidth={7}
@@ -113,17 +113,17 @@ function MainCard({ ...props }) {
                   alt={item.title}
                 >
                   <Card.Title>
-                    {item.title != undefined ? item.title : item.name}
+                    {item.title !== undefined ? item.title : item.name}
                   </Card.Title>
                 </Link>
-                {type == "movie" && (
+                {type === "movie" && (
                   <Card.Text>
-                    {RenderDate(item) != "Invalid date"
+                    {RenderDate(item) !== "Invalid date"
                       ? RenderDate(item)
                       : ""}
                   </Card.Text>
                 )}
-                {type == "person" && (
+                {type === "person" && (
                   <Card.Text>{RenderMainWorks(item.known_for)}</Card.Text>
                 )}
               </Card.Body>

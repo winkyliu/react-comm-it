@@ -8,8 +8,8 @@ import MainNavBar from "../../components/MainNavBar/MainNavBar";
 import LoadingPerson from "../../components/Loading/LoadingPerson";
 import MainCard from "../../components/MainCard/MainCard";
 import Social from "../../components/Others/Social";
-import Footer from "../../components/Footer/Footer";
-import api from "../../tmdb/api";
+import Comments from "../../components/Comments/Comments";
+import api from "../../services/tmdb/api";
 import { GetImage, GetDepartmentPerson } from "../../functions/utils";
 import placeholder from "../../resources/img/placeholder.jpg";
 
@@ -24,10 +24,10 @@ function ActorDetails({ history }) {
   const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
-    if (id == undefined) {
+    if (id === undefined) {
       history.push({ pathname: "/" });
     }
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     function LoadDetails() {
@@ -39,7 +39,7 @@ function ActorDetails({ history }) {
           },
         })
         .then((response) => {
-          if (response.status == 200) {
+          if (response.status === 200) {
             setDetails(response.data);
           }
         })
@@ -50,7 +50,7 @@ function ActorDetails({ history }) {
     }
 
     LoadDetails();
-  }, []);
+  }, [id]);
 
   function RenderInfo() {
     return (
@@ -64,7 +64,7 @@ function ActorDetails({ history }) {
 
         <div className="info-item">
           <h3>Gender</h3>
-          <p>{details.gender == 1 ? "Female" : "Male"}</p>
+          <p>{details.gender === 1 ? "Female" : "Male"}</p>
         </div>
 
         {details.birthday && details.birthday != null && (
@@ -81,7 +81,7 @@ function ActorDetails({ history }) {
           </div>
         )}
 
-        {details.deathday != null && (
+        {details.deathday !== null && (
           <div className="info-item">
             <h3>Deathday</h3>
             <p>
@@ -114,7 +114,7 @@ function ActorDetails({ history }) {
 
   return (
     <div>
-      <MainNavBar history={history} />
+      
 
       {loading ? (
         <LoadingPerson />
@@ -187,9 +187,11 @@ function ActorDetails({ history }) {
         </Container>
       )}
 
-      <Footer />
+      <Comments type="actor" cid={id} />
     </div>
   );
 }
 
 export default ActorDetails;
+
+//<MainNavBar history={history} />

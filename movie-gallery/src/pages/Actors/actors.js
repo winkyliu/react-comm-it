@@ -6,8 +6,7 @@ import MainNavBar from "../../components/MainNavBar/MainNavBar";
 import LoadingCard from "../../components/Loading/LoadingCard";
 import MainPagination from "../../components/MainPagination/MainPagination";
 import MainCard from "../../components/MainCard/MainCard";
-import api from "../../tmdb/api";
-import Footer from "../../components/Footer/Footer";
+import api from "../../services/tmdb/api";
 
 function Actors({ history, ...props }) {
   let params = useParams();
@@ -35,7 +34,7 @@ function Actors({ history, ...props }) {
           },
         })
         .then((response) => {
-          if (response.status == 200) {
+          if (response.status === 200) {
             setListMovie(response.data.results);
             setLastPage(response.data.total_pages);
             setTotalResults(response.data.total_results);
@@ -52,18 +51,14 @@ function Actors({ history, ...props }) {
 
   return (
     <div ref={listScroll}>
-      <MainNavBar
-        history={history}
-        query={params.query}
-        handler_current_page={setCurrentPage}
-      />
+      
 
       <Container fluid>
 
         <div className="mt-5 d-flex flex-wrap">
           {loading && <LoadingCard qty={8} />}
 
-          {!loading && listMovie.length == 0 && (
+          {!loading && listMovie.length === 0 && (
             <div className="container-empty">
               <p>
                 No results were found that match your search criteria.
@@ -83,9 +78,16 @@ function Actors({ history, ...props }) {
           />
         )}
       </Container>
-      <Footer />
     </div>
   );
 }
 
 export default Actors;
+
+/*
+<MainNavBar
+        history={history}
+        query={params.query}
+        handler_current_page={setCurrentPage}
+      />
+      */

@@ -1,13 +1,12 @@
 import React from "react";
 
 import MainNavBar from "../../components/MainNavBar/MainNavBar";
-import Footer from "../../components/Footer/Footer";
 
 function About({ history }) {
 
     return (
         <div>
-            <MainNavBar history={history} />
+
 
             <div>
                 <h3>About this website.</h3>
@@ -34,10 +33,10 @@ function About({ history }) {
                     <li>Looking for opportunities around Saskatchewan.</li>
                 </ul>
             </div>
-
-            <Footer />
         </div>
     );
 }
 
 export default About;
+
+//<MainNavBar history={history} />

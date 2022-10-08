@@ -2,13 +2,12 @@ import React, { useState, useEffect, useRef } from "react";
 import { Col, Container, Form } from "react-bootstrap";
 import Select from "react-select";
 
-import MainNavBar from "../../components/MainNavBar/MainNavBar";
+//import MainNavBar from "../../components/MainNavBar/MainNavBar";
 import LoadingCard from "../../components/Loading/LoadingCard";
 import MainPagination from "../../components/MainPagination/MainPagination";
 import { GetListYears, GetListSort } from "../../functions/utils";
 import MainCard from "../../components/MainCard/MainCard";
-import Footer from "../../components/Footer/Footer";
-import api from "../../tmdb/api";
+import api from "../../services/tmdb/api";
 import moment from "moment";
 
 function Discover({ history }) {
@@ -51,7 +50,7 @@ function Discover({ history }) {
           params: obj,
         })
         .then((response) => {
-          if (response.status == 200) {
+          if (response.status === 200) {
             setListMovie(response.data.results);
             setLastPage(response.data.total_pages);
             setTotalResults(response.data.total_results);
@@ -72,7 +71,7 @@ function Discover({ history }) {
 
   return (
     <div ref={listScroll}>
-      <MainNavBar history={history} />
+      
 
       <Container fluid>
 
@@ -113,7 +112,7 @@ function Discover({ history }) {
         <div className="mt-5 d-flex flex-wrap">
           {loading && <LoadingCard qty={8} />}
 
-          {!loading && listMovie.length == 0 && (
+          {!loading && listMovie.length === 0 && (
             <div className="container-empty">
               <p>
                 No results were found that match your search criteria.
@@ -134,9 +133,10 @@ function Discover({ history }) {
           />
         )}
       </Container>
-      <Footer />
     </div>
   );
 }
 
 export default Discover;
+
+//<MainNavBar history={history} />

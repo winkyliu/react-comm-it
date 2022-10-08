@@ -7,13 +7,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 
 import BtnMore from "../../components/Others/BtnMore";
-import MainNavBar from "../../components/MainNavBar/MainNavBar";
+//import MainNavBar from "../../components/MainNavBar/MainNavBar";
 import LoadingDetails from "../../components/Loading/LoadingDetails";
 import CardCast from "../../components/Others/CardCast";
 import Social from "../../components/Others/Social";
 import Trailer from "../../components/Modals/Trailer";
-import Footer from "../../components/Footer/Footer";
-import api from "../../tmdb/api";
+import Comments from "../../components/Comments/Comments";
+import api from "../../services/tmdb/api";
 import {
   GetImage,
   ConvertRuntime,
@@ -36,10 +36,10 @@ function MovieDetails({ history }) {
   const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
-    if (id == undefined) {
+    if (id === undefined) {
       history.push({ pathname: "/" });
     }
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     function LoadDetails() {
@@ -47,11 +47,11 @@ function MovieDetails({ history }) {
         .get(`/movie/${id}`, {
           params: {
             append_to_response:
-              "videos,external_ids,recommendations,keywords,credits",
+              "videos,external_ids,keywords,credits",
           },
         })
         .then((response) => {
-          if (response.status == 200) {
+          if (response.status === 200) {
             setDetails(response.data);
 
             if (response.data.videos?.results.length > 0) {
@@ -72,22 +72,22 @@ function MovieDetails({ history }) {
   }, [id]);
 
   function GetGenres(genres) {
-    if (genres == null || genres == undefined) return false;
+    if (genres === null || genres === undefined) return false;
     var list = "";
     genres.map((item, index) => {
-      list += `${item.name}${index != genres.length - 1 ? "," : ""} `;
+      list += `${item.name}${index !== genres.length - 1 ? "," : ""} `;
     });
     return list;
   }
 
   function RenderYear() {
-    if (details.release_date != "") {
+    if (details.release_date !== "") {
         return `(${moment(details.release_date).format("YYYY")})`;
     }
   }
 
   function RenderDate() {
-    if (details.release_date != "") {
+    if (details.release_date !== "") {
         return moment(details.release_date).format("L");
     }
   }
@@ -143,7 +143,7 @@ function MovieDetails({ history }) {
 
   return (
     <div>
-      <MainNavBar history={history} />
+      
       <Trailer
         trailer_id={trailerId}
         handler_show_trailer={setShowTrailer}
@@ -152,7 +152,7 @@ function MovieDetails({ history }) {
 
       {loading && <LoadingDetails />}
 
-      {!loading && details.id == undefined && (
+      {!loading && details.id === undefined && (
         <div className="container-empty mt-5">
           <p>
           Oops! We could not find the page you are looking for
@@ -254,7 +254,7 @@ function MovieDetails({ history }) {
                   <h3 className="mb-4 font-weight-bold text-center text-md-left">
                     Main cast
                   </h3>
-                  {details.credits.cast.length == 0 && (
+                  {details.credits.cast.length === 0 && (
                     <p className="text-center">Indisponível</p>
                   )}
                   <div className="d-flex flex-wrap">
@@ -286,9 +286,12 @@ function MovieDetails({ history }) {
           </Container>
         </>
       )}
-      <Footer />
+
+      <Comments type="movie" cid={id} />
     </div>
   );
 }
 
 export default MovieDetails;
+
+//<MainNavBar history={history} />

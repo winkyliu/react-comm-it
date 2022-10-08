@@ -5,13 +5,16 @@ import { useLocation, NavLink } from "react-router-dom";
 import "./styles.css";
 import logo from "../../resources/img/logo.png";
 
+import UserBar from "./UserBar";
+
 function MainNavBar({ ...props }) {
   const { history, query, handler_current_page } = props;
   const location = useLocation();
 
-  const [word, setWord] = useState(query ? query : "");
-  const isPageSearch = location.pathname.includes("search");
+  //const [word, setWord] = useState(query ? query : "");
+  //const isPageSearch = location.pathname.includes("search");
 
+  /*
   function GoToSearch(word) {
     if (word == "") return false;
     if (isPageSearch) {
@@ -23,7 +26,7 @@ function MainNavBar({ ...props }) {
     }
 
     history.push({ pathname: `/search/${word}` });
-  }
+  }*/
 
   return (
     <div
@@ -68,7 +71,20 @@ function MainNavBar({ ...props }) {
               About
             </NavLink>
           </Nav>
-          <Form
+
+          <UserBar />
+
+        </Navbar.Collapse>
+      </Navbar>
+    </div>
+  );
+}
+
+export default MainNavBar;
+
+
+/*
+<Form
             inline
             onSubmit={(e) => {
               e.preventDefault();
@@ -92,10 +108,4 @@ function MainNavBar({ ...props }) {
               Find
             </Button>
           </Form>
-        </Navbar.Collapse>
-      </Navbar>
-    </div>
-  );
-}
-
-export default MainNavBar;
+*/

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext } from "react";
 import { render } from 'react-dom';
 //import './index.css';
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -10,8 +10,8 @@ import Navigator from "./navigator";
 
 const rootElement = document.getElementById('root');
 render(
-  <Navigator />,
-  rootElement
+    <Navigator />,
+    rootElement
 );
 
 // If you want to start measuring performance in your app, pass a function
